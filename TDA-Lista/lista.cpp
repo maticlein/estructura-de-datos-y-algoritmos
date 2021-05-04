@@ -57,3 +57,54 @@ void inserta(tipoDato x, int p, Lista &lista){
         aux->next = n; 
     }
 }
+
+tipoDato recupera(int p, Lista lista){
+    for(int i = primero(lista) ; i < p ; i++){
+        lista = lista->next;
+    }
+    return lista->dato;
+}
+
+void imprimeLista(Lista lista){
+     for(int i = primero(lista) ; i < fin(lista) ; i = siguiente(i, lista)){
+        tipoDato dato = recupera(i, lista);
+        printf("%d\n", dato);
+    }   
+}
+
+int localiza(tipoDato x, Lista lista){
+    for(int i = primero(lista) ; i < fin(lista) ; i = siguiente(i, lista)){
+        tipoDato dato = recupera(i, lista); 
+        if(x == dato){
+            return i;
+        }
+    }
+    return fin(lista);
+}
+
+void suprime(int p, Lista &lista){
+    if((p>fin(lista)) || ( p < primero(lista))){
+        printf("ERROR en la función SUPRIME\n");
+        return;
+    } else {
+        Lista aux = lista;
+        Lista aBorrar = lista;
+        if(p == primero(lista)){
+            lista = aux->next;
+        } else {
+            for(int i = primero(lista) ; i < anterior(p, lista) ; i = siguiente(i, lista)){
+                aux = aux->next;       
+            }
+            aBorrar = aux->next;
+            aux->next = aBorrar->next;
+        }
+        aBorrar->next = NULL;
+        delete aBorrar;
+    }    
+}
+
+void anula(Lista &lista){
+    while(!vacia(lista)){
+        suprime(primero(lista), lista);
+    }
+}
