@@ -4,6 +4,10 @@
 int main(){
     printf("TDA de Lista\n");
     Lista lista = NULL;
+    anula(lista);
+    if(vacia(lista)){
+        printf("La lista está vacía!\n");
+    }
 
     // if(vacia(lista)){
     //     printf("La lista está vacía\n");
@@ -11,20 +15,20 @@ int main(){
     //     printf("Hay elementos\n");
     // }
 
-    inserta(5, 1, lista);
-    inserta(10, 2, lista);
-    inserta(20, 3, lista);
-    inserta(30, 4, lista);
-    inserta(40, 5, lista);
-    inserta(50, 6, lista);
+    // inserta(5, 1, lista);
+    // inserta(10, 2, lista);
+    // inserta(20, 3, lista);
+    // inserta(30, 4, lista);
+    // inserta(40, 5, lista);
+    // inserta(50, 6, lista);
 
-    anula(lista);
+    // anula(lista);
     
-    if(vacia(lista)){
-        printf("La lista está vacía\n");
-    } else {
-        printf("Hay elementos\n");
-    }
+    // if(vacia(lista)){
+    //     printf("La lista está vacía\n");
+    // } else {
+    //     printf("Hay elementos\n");
+    // }
 
     //imprimeLista(lista);
 
