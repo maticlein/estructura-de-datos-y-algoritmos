@@ -1,0 +1,2 @@
+// PROTOTIPOS
+void mensajeSaludo();
