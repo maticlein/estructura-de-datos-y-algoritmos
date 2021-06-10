@@ -44,7 +44,7 @@ void inserta(tipoDato x, int p, Lista &lista){
 void imprime(Lista lista){
 	for(int i=primero(lista);i<fin(lista);i=siguiente(i,lista)){
 		tipoDato x = recupera(i,lista);
-		printf("[%d,%d]->",i,x);
+		printf("[%d,%d]->",i,x.dato);
 	}
 	printf("\n");
 }
@@ -57,7 +57,7 @@ void anula(Lista &lista){
 
 int localiza(tipoDato x, Lista lista){
 	for(int i=primero(lista);i<fin(lista);i=siguiente(i,lista))
-		if(recupera(i,lista)==x)
+		if(recupera(i,lista).dato==x.dato)
 			return i;
 	return fin(lista);
 }
