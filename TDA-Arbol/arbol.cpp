@@ -57,8 +57,8 @@ bool esHoja(Arbol n){
 	return vacia(nodoAux.hijos);
 }
 
-bool esNulo(Arbol raiz){
-	return vacia(raiz);
+bool esNulo(Arbol n){
+	return vacia(n);
 }
 
 bool esHijo(Arbol n, Arbol padre){
@@ -100,7 +100,7 @@ void reEtiqueta(datoArbol e, Arbol & n, Arbol raiz){
 		inserta(nodoAux,primero(n),n);
 	}
 }
-
+ 
 void anula(Arbol & raiz){
 	if(!esNulo(raiz)){		
 		Arbol c = hijoMasIzq(raiz);
@@ -112,6 +112,7 @@ void anula(Arbol & raiz){
 		suprime(primero(raiz),raiz);
 	}
 }
+    
 
 Arbol podarHijoMasIzq(Arbol n){
 	Arbol hijo = hijoMasIzq(n);
