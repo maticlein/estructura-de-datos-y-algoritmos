@@ -16,4 +16,4 @@ int main(){
 	printf("Hola Estructura de Datos %d-%d\n", anho, semestre);
 	printf("Bienvenidos!\n");
 	return 0;
-	}
+}
