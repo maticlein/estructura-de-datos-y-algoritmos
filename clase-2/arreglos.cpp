@@ -9,6 +9,9 @@ int main(){
     printf("%d\n", numeros[0]);
 
     int matriz[2][2];
+    //         0   1
+    //    0    A   B
+    //    1    C   D
     matriz[0][0] = 15;
     printf("%d\n", matriz[0][0]);
 
