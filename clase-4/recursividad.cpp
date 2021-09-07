@@ -3,10 +3,8 @@
 int numeroDivisores(int numero, int divisor);
 
 int main(){
-
     int contador = numeroDivisores(8, 8);
     printf("Contador: %d\n", contador);
-
     return 0;
 }
 
