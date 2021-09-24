@@ -1,6 +1,6 @@
 all:
-	g++ usuario.cpp -c
-	g++ main.cpp -c
+	g++ -c usuario.cpp
+	g++ -c main.cpp
 	g++ -o ejecutable usuario.o main.o
 	./ejecutable
 
