@@ -44,7 +44,7 @@ void imprimeCola(Cola cola){
         // conocer el primer valor
         tipoDato x = frente(cola);
         // imprimir valor
-        printf("%d -> ", x);
+        printf("%d <- ", x);
         // dejar el valor en cola aux
         ponerEnCola(x, aux);
         // sacar el valor de la cola original
