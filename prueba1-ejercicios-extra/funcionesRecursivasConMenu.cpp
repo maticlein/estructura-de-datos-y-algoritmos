@@ -28,7 +28,7 @@ int main(){
 		switch(opcion){
 			case 1: printf("Ingrese el número del cual quiere buscar divisores:\n");
 					scanf("%d",&numero);
-					printf("La cantidad de divisores de %d es: %d\n",numero,numDivisores(numero,numero));
+					printf("La cantidad de divisores de %d es: %d\n", numero, numDivisores(numero, numero));
 					break;
 			case 2: printf("Ingrese el número que quiere comprobar si es par:\n");
 					scanf("%d",&numero);

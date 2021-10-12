@@ -1,6 +1,6 @@
 all:
 	g++ -c ../TDA-Lista-v2/lista.cpp
-	g++ -c clase11-funcionesTDA-Lista.cpp 
-	g++ -o ejecutable lista.o clase11-funcionesTDA-Lista.o
+	g++ -c main.cpp
+	g++ -o ejecutabe lista.o main.o
 	rm *.o
-	./ejecutable
+	./ejecutabe
