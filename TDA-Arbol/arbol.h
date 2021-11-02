@@ -3,7 +3,7 @@
 
 // Prototipos
 
-// Martes 08/06
+// Martes 02/11
 Arbol creaRaiz(datoArbol u);
 Arbol& listaHijos(Arbol n);
 void insertaHijoMasIzq(Arbol& n, Arbol& Ti);
@@ -13,7 +13,7 @@ Arbol hijoMasIzq(Arbol n);
 Arbol hermanoDer(Arbol n);
 datoArbol etiqueta(Arbol n);
 
-// Jueves 10/06
+// Martes 09/11
 bool esHoja(Arbol n);
 bool esNulo(Arbol n);
 bool esHijo(Arbol n, Arbol padre);

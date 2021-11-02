@@ -3,7 +3,7 @@
 
 // Implementaciones
 
-// Martes 08/06
+// Martes 02/11
 Arbol creaRaiz(datoArbol u){
     Arbol r;
     tipoDato n;
@@ -17,14 +17,14 @@ Arbol& listaHijos(Arbol n) {
 }
 
 void insertaHijoMasIzq(Arbol& n, Arbol& Ti){
-    Arbol& hijos = listaHijos(n);
-    tipoDato raizTi = recupera(primero(Ti), Ti);
-    inserta(raizTi, primero(hijos), hijos);
-    anula((Lista&)Ti);
+    Arbol& hijos = listaHijos(n); // Obtiene la lista de hijos de n
+    tipoDato raizTi = recupera(primero(Ti), Ti); // Obtiene los datos de la raíz de Ti
+    inserta(raizTi, primero(hijos), hijos); // Inserta la raíz Ti como primer elemento de la lista de hijos (el más a la izquierda)
+    anula((Lista&)Ti); // Anula lo que había en Ti
 }
 
 void insertaHermanoDer(Arbol& n, Arbol& Td){
-    tipoDato raizTd = recupera(primero(Td), Td);
+    tipoDato raizTd = recupera(primero(Td), Td); // Obtiene los datos de la raíz de Td
     inserta(raizTd, siguiente(primero(n), n), n);
     anula((Lista&)Td);
 }
@@ -50,8 +50,7 @@ datoArbol etiqueta(Arbol n){
     return dato;
 }
 
-
-// Jueves 10/06
+// Martes 09/11
 bool esHoja(Arbol n){
 	tipoDato nodoAux = recupera(primero(n),n);
 	return vacia(nodoAux.hijos);

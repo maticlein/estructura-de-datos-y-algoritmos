@@ -18,8 +18,6 @@ struct nodoArbol {
 	Arbol hijos;
 };
 
-
-
 struct nodo{
 	tipoDato dato;
 	struct nodo* next;
