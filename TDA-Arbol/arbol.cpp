@@ -52,7 +52,7 @@ datoArbol etiqueta(Arbol n){
 
 // Martes 09/11
 bool esHoja(Arbol n){
-	tipoDato nodoAux = recupera(primero(n),n);
+	tipoDato nodoAux = recupera(primero(n), n);
 	return vacia(nodoAux.hijos);
 }
 
@@ -61,42 +61,43 @@ bool esNulo(Arbol n){
 }
 
 bool esHijo(Arbol n, Arbol padre){
-	tipoDato nodoPadre = recupera(primero(padre),padre);
-	tipoDato nodoAux = recupera(primero(n),n);
-	int p = localiza(nodoAux,nodoPadre.hijos);
-	if(p<fin(nodoPadre.hijos))
+	tipoDato nodoPadre = recupera(primero(padre), padre);
+	tipoDato nodoAux = recupera(primero(n), n);
+	int p = localiza(nodoAux, nodoPadre.hijos);
+	if(p < fin(nodoPadre.hijos)){
 		return true;
+	}
 	return false;
 }
 
 Arbol padre(Arbol n, Arbol raiz){
-	bool ok = esHijo(n,raiz);
+	bool ok = esHijo(n, raiz);
 	if(ok){
 		return raiz;
 	}else{
 		Arbol aux;
-		for(Arbol c=hijoMasIzq(raiz); !esNulo(c); c=hermanoDer(c)){
-			aux = padre(n,c);
+		for(Arbol c = hijoMasIzq(raiz); !esNulo(c); c = hermanoDer(c)){
+			aux = padre(n, c);
 			if(!esNulo(aux))
 				return aux;
 		}
 		return aux;
 	}
 }
-
+ 
 void reEtiqueta(datoArbol e, Arbol & n, Arbol raiz){
 	Arbol p = padre(n, raiz);
-	tipoDato nodoAux = recupera(primero(n),n);
+	tipoDato nodoAux = recupera(primero(n), n);
 	if(!esNulo(p)){
 		Arbol& hijos = listaHijos(p);
-		int pos = localiza(nodoAux,hijos);
-		nodoAux.dato=e;
-		suprime(pos,hijos);
-		inserta(nodoAux,pos,hijos);
+		int pos = localiza(nodoAux, hijos);
+		nodoAux.dato = e;
+		suprime(pos, hijos);
+		inserta(nodoAux, pos, hijos);
 	}else{
-		nodoAux.dato=e;
-		suprime(primero(n),n);
-		inserta(nodoAux,primero(n),n);
+		nodoAux.dato = e;
+		suprime(primero(n), n);
+		inserta(nodoAux,primero(n), n);
 	}
 }
  
@@ -108,27 +109,26 @@ void anula(Arbol & raiz){
 			anula(c);
 			c = aux;
 		}
-		suprime(primero(raiz),raiz);
+		suprime(primero(raiz), raiz);
 	}
 }
-    
-
+      
 Arbol podarHijoMasIzq(Arbol n){
 	Arbol hijo = hijoMasIzq(n);
-	tipoDato datoHijo = recupera(primero(hijo),hijo);
+	tipoDato datoHijo = recupera(primero(hijo), hijo);
 	Arbol& hijos = listaHijos(n);
-	suprime(primero(hijos),hijos);
+	suprime(primero(hijos), hijos);
 	Arbol r;
-	inserta(datoHijo,primero(r),r);	
+	inserta(datoHijo,primero(r), r);	
 	return r;	
 }
 
 Arbol podarHermanoDer(Arbol n){
 	Arbol hermano = hermanoDer(n);
-	int pos = siguiente(primero(n),n);
-	tipoDato datoHermano = recupera(primero(hermano),hermano);
-	suprime(pos,n);
+	int pos = siguiente(primero(n), n);
+	tipoDato datoHermano = recupera(primero(hermano), hermano);
+	suprime(pos, n);
 	Arbol r;
-	inserta(datoHermano,primero(r),r);
+	inserta(datoHermano, primero(r), r);
 	return r;	
 }
