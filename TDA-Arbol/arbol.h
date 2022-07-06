@@ -17,6 +17,7 @@ datoArbol etiqueta(Arbol n);
 bool esHoja(Arbol n);
 bool esNulo(Arbol n);
 bool esHijo(Arbol n, Arbol padre);
+
 Arbol padre(Arbol n, Arbol raiz);
 void reEtiqueta(datoArbol e, Arbol & n, Arbol raiz);
 void anula(Arbol &raiz);

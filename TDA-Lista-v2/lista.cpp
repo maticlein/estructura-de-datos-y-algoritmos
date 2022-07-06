@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "lista.h"
 
+// Viernes 10/06
 bool vacia(Lista lista){
 	return fin(lista)==primero(lista);
 }
@@ -9,6 +10,15 @@ int primero(Lista lista){
 	return 1;
 }
 
+int anterior(int p, Lista lista){
+	return p-1;
+}
+
+int siguiente(int p, Lista lista){
+	return p+1;
+}
+
+// Martes 14/06
 int fin(Lista lista){
 	int c=1;
 	nodo*aux = lista.primero;
@@ -17,14 +27,6 @@ int fin(Lista lista){
 		c++;
 	}
 	return c;
-}
-
-int anterior(int p, Lista lista){
-	return p-1;
-}
-
-int siguiente(int p, Lista lista){
-	return p+1;
 }
 
 void inserta(tipoDato x, int p, Lista &lista){
@@ -41,33 +43,32 @@ void inserta(tipoDato x, int p, Lista &lista){
 	}
 }
 
-void imprime(Lista lista){
-	for(int i=primero(lista);i<fin(lista);i=siguiente(i,lista)){
-		tipoDato x = recupera(i,lista);
-		printf("[%d,%d]->",i,x);
-	}
-	printf("\n");
-}
-
-
-void anula(Lista &lista){
-	while(!vacia(lista))
-		suprime(primero(lista),lista);
-}
-
-int localiza(tipoDato x, Lista lista){
-	for(int i=primero(lista);i<fin(lista);i=siguiente(i,lista))
-		if(recupera(i,lista)==x)
-			return i;
-	return fin(lista);
-}
-
 tipoDato recupera(int p, Lista lista){
 	nodo* aux = lista.primero;
 	for(int i=1;i<p;i++)
 		aux=aux->next;
 	return aux->dato;
 }
+
+// int localiza(int x , Lista lista){
+// 	for(int i=primero(lista);i<fin(lista);i=siguiente(i,lista))
+// 		if(recupera(i,lista).edad == x)
+// 			return i;
+// 	return fin(lista);
+// }
+ 
+
+// Viernes 17/06
+
+void imprime(Lista lista){
+	for(int i=primero(lista);i<fin(lista);i=siguiente(i,lista)){
+		tipoDato x = recupera(i,lista);
+		// printf("[%d]-> ",x);
+		printf("%s %s %d -> ", x.nombre, x.ciudad, x.edad);
+	}
+	printf("*\n");
+}
+
 void suprime(int p, Lista &lista){
 	nodo* aux = lista.primero;
 	if(primero(lista)==p)
@@ -83,3 +84,7 @@ void suprime(int p, Lista &lista){
 	delete aux;
 }
 
+void anula(Lista &lista){
+	while(!vacia(lista))
+		suprime(primero(lista),lista);
+}
