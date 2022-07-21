@@ -50,12 +50,12 @@ tipoDato recupera(int p, Lista lista){
 	return aux->dato;
 }
 
-// int localiza(int x , Lista lista){
-// 	for(int i=primero(lista);i<fin(lista);i=siguiente(i,lista))
-// 		if(recupera(i,lista).edad == x)
-// 			return i;
-// 	return fin(lista);
-// }
+int localiza(int x , Lista lista){
+	for(int i=primero(lista);i<fin(lista);i=siguiente(i,lista))
+		if(recupera(i,lista) == x)
+			return i;
+	return fin(lista);
+}
  
 
 // Viernes 17/06
@@ -63,8 +63,7 @@ tipoDato recupera(int p, Lista lista){
 void imprime(Lista lista){
 	for(int i=primero(lista);i<fin(lista);i=siguiente(i,lista)){
 		tipoDato x = recupera(i,lista);
-		// printf("[%d]-> ",x);
-		printf("%s %s %d -> ", x.nombre, x.ciudad, x.edad);
+		printf("[%d]-> ",x);
 	}
 	printf("*\n");
 }

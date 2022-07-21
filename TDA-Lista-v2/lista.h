@@ -12,7 +12,7 @@ int siguiente(int p, Lista lista);
 int fin(Lista lista);
 void inserta(tipoDato x, int p, Lista &lista);
 tipoDato recupera(int p, Lista lista);
-// int localiza(tipoDato x, Lista lista);
+int localiza(tipoDato x, Lista lista);
 
 // Viernes 17/06
 void imprime(Lista lista);
