@@ -23,7 +23,7 @@ int anterior(int p, Lista lista){
         printf("Error en la función ANTERIOR!\n");
         return 0;
     } else {
-        return p - 1;
+                    return p - 1;
     }
 }
 
@@ -59,7 +59,7 @@ void inserta(tipoDato x, int p, Lista &lista){
 }
 
 tipoDato recupera(int p, Lista lista){
-    for(int i = primero(lista) ; i < p ; i++){
+    for(int i = primero(lista) ; i < p ; i = siguiente(i, lista)){
         lista = lista->next;
     }
     return lista->dato;

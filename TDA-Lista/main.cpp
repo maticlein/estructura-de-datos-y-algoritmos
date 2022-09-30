@@ -17,6 +17,8 @@ int main(){
     // inserta(50, 5, lista);
     // inserta(60, 2, lista);
 
+    // printf("%d\n", recupera(2, lista));
+
     // if(vacia(lista)){
     //     printf("La lista está vacía!\n");
     // } else {

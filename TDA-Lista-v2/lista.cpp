@@ -30,30 +30,34 @@ int fin(Lista lista){
 }
 
 void inserta(tipoDato x, int p, Lista &lista){
-	nodo* nuevo= new nodo(x);
+	nodo* nuevo = new nodo(x);
 	nodo* aux = lista.primero;
-	if(primero(lista)==p){
-		nuevo->next=lista.primero;
+	if(p == primero(lista)){
+		nuevo->next = lista.primero;
 		lista.primero = nuevo;
 	}else{
-		for(int i=0;i<p-2;i++)
-			aux=aux->next;
-		nuevo->next=aux->next;
-		aux->next=nuevo;
+		for(int i = 0 ; i < p - 2 ; i++){
+			aux = aux->next;
+		}
+		nuevo->next = aux->next;
+		aux->next = nuevo;
 	}
 }
 
 tipoDato recupera(int p, Lista lista){
 	nodo* aux = lista.primero;
-	for(int i=1;i<p;i++)
-		aux=aux->next;
+	for(int i = 1 ; i < p ; i++){
+		aux = aux->next;
+	}
 	return aux->dato;
 }
 
-int localiza(int x , Lista lista){
-	for(int i=primero(lista);i<fin(lista);i=siguiente(i,lista))
-		if(recupera(i,lista) == x)
+int localiza(tipoDato x , Lista lista){
+	for(int i = primero(lista) ; i < fin(lista) ; i = siguiente(i, lista)){
+		if(recupera(i, lista) == x){
 			return i;
+		}
+	}
 	return fin(lista);
 }
  
@@ -61,22 +65,23 @@ int localiza(int x , Lista lista){
 // Viernes 17/06
 
 void imprime(Lista lista){
-	for(int i=primero(lista);i<fin(lista);i=siguiente(i,lista)){
+	for(int i = primero(lista) ; i < fin(lista) ; i = siguiente(i, lista)){
 		tipoDato x = recupera(i,lista);
-		printf("[%d]-> ",x);
+		printf("[%d]-> ", x);
 	}
 	printf("*\n");
 }
 
 void suprime(int p, Lista &lista){
 	nodo* aux = lista.primero;
-	if(primero(lista)==p)
-		lista.primero=aux->next;
-	else{
+	if(p == primero(lista)){
+		lista.primero = aux->next;
+	} else {
 		nodo* aux2 = lista.primero;
-		for(int i=0;i<p-2;i++)
-			aux2=aux2->next;
-		aux=aux2->next;
+		for(int i = 0 ; i < p - 2 ; i++){
+			aux2 = aux2->next;
+		}
+		aux = aux2->next;
 		aux2->next = aux->next;
 	}
 	aux->next = NULL;
