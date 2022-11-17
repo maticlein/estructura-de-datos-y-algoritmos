@@ -1,8 +1,8 @@
 #ifndef LISTA_STRUCT_H
 #define LISTA_STRUCT_H
 
-#define tipoDato nodoArbol
 #define datoArbol int
+#define tipoDato nodoArbol
 
 struct Lista{
 	struct nodo* primero;

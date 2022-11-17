@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "listaStruct.h"
+#include "./listaStruct.h"
 
 /* Prototipos */
 bool vacia(Lista lista);

@@ -1,4 +1,4 @@
-#include "arbol.h"
+#include "./arbol.h"
 #include <stdio.h>
 
 // Implementaciones
@@ -60,6 +60,10 @@ bool esNulo(Arbol n){
 	return vacia(n);
 }
 
+
+
+
+
 bool esHijo(Arbol n, Arbol padre){
 	tipoDato nodoPadre = recupera(primero(padre), padre);
 	tipoDato nodoAux = recupera(primero(n), n);
@@ -69,6 +73,10 @@ bool esHijo(Arbol n, Arbol padre){
 	}
 	return false;
 }
+
+
+
+
 
 Arbol padre(Arbol n, Arbol raiz){
 	bool ok = esHijo(n, raiz);
@@ -116,8 +124,10 @@ void anula(Arbol & raiz){
 Arbol podarHijoMasIzq(Arbol n){
 	Arbol hijo = hijoMasIzq(n);
 	tipoDato datoHijo = recupera(primero(hijo), hijo);
+
 	Arbol& hijos = listaHijos(n);
 	suprime(primero(hijos), hijos);
+
 	Arbol r;
 	inserta(datoHijo,primero(r), r);	
 	return r;	
