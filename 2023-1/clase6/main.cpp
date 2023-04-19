@@ -2,7 +2,7 @@
 #include <string.h>
 
 int main(){
-    char nombres[10][50];
+    char nombres[10][50] = {' '};
     int opcion = 0;
     int indiceUsuario = 0;
 
@@ -33,8 +33,14 @@ int main(){
                             } else {
                                 printf("Alejandro Yañez NO ESTÁ en los contactos.\n");
                             }
-            case 3:
-            case 4:
+                    break;
+            case 3: break;
+            case 4: strcpy(nombres[0], "Juan");
+                    strcpy(nombres[1], "Marco");
+                    strcpy(nombres[2], "Diego");
+                    for(int i = 0 ; i < sizeof(nombres)/sizeof(nombres[0]) ; i++){
+                        printf("Contacto %d -> %s\n", i + 1, nombres[i]);
+                    }
             case 5: printf("Hasta luego!\n");
                     break;
             default: printf("La opción ingresada no es válida, ingrese nuevamente.\n");
