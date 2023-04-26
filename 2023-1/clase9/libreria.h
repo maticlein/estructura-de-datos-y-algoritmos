@@ -1,0 +1,3 @@
+// Prototipos
+
+void saludar();
