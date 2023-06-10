@@ -4,7 +4,6 @@
 // void eliminarParesCola(Cola &cola);
 void imprimirMayoresEdad(Cola cola);
 void ordenarClientesPorEdad(Cola& cola);
-void imprimirClientesAlfabeticamente(Cola cola);
 
 int main(){
     printf("Ejercicios Prueba Nº2\n");
@@ -37,7 +36,7 @@ int main(){
     
     ordenarClientesPorEdad(ejemplo);
     imprimeCola(ejemplo);
-    
+
     return 0;
 }
 
