@@ -3,6 +3,7 @@
 
 Arbol crearArbolEjemplo();
 void imprimeListaHijos(Arbol n);
+void numeroHijos(Arbol A, nodoArbol n);
 
 void ordenPrevio(Arbol n);
 void ordenPosterior(Arbol n);
@@ -22,6 +23,11 @@ int main(){
 	printf("Orden Posterior: ");
 	ordenPosterior(a);
 	printf("\n");
+
+	nodoArbol ejemplo;
+	ejemplo.dato = 3;
+
+	numeroHijos(a, ejemplo);
 
     return 0;
 }
@@ -99,5 +105,16 @@ void ordenSimetrico(Arbol n) {
 		for(Arbol c = hermanoDer(hijoMasIzq(n)) ; !esNulo(c) ; c = hermanoDer(c)){
 			ordenSimetrico(c);
 		}
+	}
+}
+
+void numeroHijos(Arbol A, nodoArbol n){
+	datoArbol valor = etiqueta(A);
+	
+	if(valor == n.dato){
+		printf("Valor encontrado!! -> %d -> Tiene %d hijos\n", valor, fin(listaHijos(A)) - 1);
+	}
+	for(Arbol c = hijoMasIzq(A); !esNulo(c) ; c = hermanoDer(c)){
+		numeroHijos(c, n);
 	}
 }
