@@ -59,17 +59,18 @@ void inserta(tipoDato x, int p, Lista &lista){
 }
 
 tipoDato recupera(int p, Lista lista){
-    for(int i = primero(lista) ; i < p ; i = siguiente(i, lista)){
+    for(int i = primero(lista) ; i < p ; i++){
         lista = lista->next;
     }
     return lista->dato;
 }
 
 void imprimeLista(Lista lista){
-     for(int i = primero(lista) ; i < fin(lista) ; i = siguiente(i, lista)){
+     for(int i = primero(lista) ; i < fin(lista) ; i++){
         tipoDato dato = recupera(i, lista);
-        printf("%d\n", dato);
-    }   
+        printf("%d -> ", dato);
+    }
+    printf("*\n");   
 }
 
 int localiza(tipoDato x, Lista lista){

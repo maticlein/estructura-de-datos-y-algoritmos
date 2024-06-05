@@ -2,6 +2,7 @@
 #include "pila.h"
 
 void suprimirElemento(Pila& pila, int pos);
+void ordenarPila(Pila& pila);
 
 int main(){
     Pila pila;
@@ -12,7 +13,7 @@ int main(){
     push(16, pila);
     push(3, pila);
     push(18, pila);
-    suprimirElemento(pila, 5);
+    ordenarPila(pila);
     imprimePila(pila);
     return 0;
 }
@@ -34,4 +35,33 @@ void suprimirElemento(Pila& pila, int pos){
             pop(aux);
         }
     }
+}
+
+void ordenarPila(Pila& p){
+    Pila aux;
+    Pila resultado;
+    while(!vacia(p)){
+        tipoDato minimo = top(p);
+        while(!vacia(p)){
+            tipoDato datos = top(p);
+            if(datos < minimo){
+                minimo = datos;
+            }
+            push(datos, aux);
+            pop(p);
+        }
+        push(minimo, resultado);
+        while(!vacia(aux)){
+            if(top(aux) != minimo){
+                push(top(aux), p);
+            }
+            pop(aux);
+        }
+    }
+
+    while(!vacia(resultado)){
+        push(top(resultado), p);
+        pop(resultado);
+    }
+    
 }

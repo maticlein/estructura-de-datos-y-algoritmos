@@ -9,6 +9,8 @@ void ordenPrevio(Arbol n);
 void ordenPosterior(Arbol n);
 void ordenSimetrico(Arbol n);
 
+void altura(Arbol n, int nivel, int& h);
+
 int main(){
 	
 	Arbol a = crearArbolEjemplo();
@@ -24,11 +26,14 @@ int main(){
 	ordenPosterior(a);
 	printf("\n");
 
-	nodoArbol ejemplo;
-	ejemplo.dato = 3;
+	// nodoArbol ejemplo;
+	// ejemplo.dato = 3;
 
-	numeroHijos(a, ejemplo);
+	// numeroHijos(a, ejemplo);
 
+	int resultado = 0;
+	altura(a, 0, resultado);
+	printf("Altura: %d\n", resultado);
     return 0;
 }
 
@@ -116,5 +121,15 @@ void numeroHijos(Arbol A, nodoArbol n){
 	}
 	for(Arbol c = hijoMasIzq(A); !esNulo(c) ; c = hermanoDer(c)){
 		numeroHijos(c, n);
+	}
+}
+
+void altura(Arbol n, int nivel, int& h){
+	if(nivel > h){
+		h = nivel;
+	}
+	nivel++;
+	for(Arbol c = hijoMasIzq(n); !esNulo(c) ; c = hermanoDer(c)){
+		altura(c, nivel, h);
 	}
 }
